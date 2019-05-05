@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dictionary</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <ion-searchbar [(ngModel)]="text" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+     <!-- (click)="openDetail(item)" -->
+    <button ion-item *ngFor="let item of items" (click)="goToDetails(item)">
+      {{ item.headword }}
+    </button>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Voice Translate</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <button ion-button (click)="isSpeechSupported()">Is Speech Supported?</button>
+  <button ion-button (click)="getPermission()">Get Permission</button>
+  <button ion-button (click)="hasPermission()">Has Permission?</button> -->
+  <!-- <button ion-button (click)="getSupportedLanguages()">Get Supported Languages</button> -->
+
+  <ion-item>
+    <ion-label> Language</ion-label>
+    <!--category and target at is not cap with the backend ,if got time make change here, default select -->
+    <ion-select [(ngModel)]="fixedcategory" disabled>
+      <ion-option value="en" selected > English</ion-option>
+      <ion-option value="zh-CN"> Chinese (Simplified)</ion-option>
+      <ion-option value="ja"> Japanese</ion-option>
+      <ion-option value="ms"> Malay</ion-option>
+      <ion-option value="es"> Spanish</ion-option>
+      <ion-option value="no"> Norwegian</ion-option>
+      <ion-option value="pt"> Portuguese</ion-option>
+      <ion-option value="ro"> Romanian</ion-option>
+      <ion-option value="ru"> Russian</ion-option>
+      <ion-option value="th"> Thai</ion-option>
+
+    </ion-select>
+  </ion-item>
+
+<ion-card>
+   <ion-card-content>
+<ion-scroll insert style="height: 25vh;">
+  <!-- (click)="presentToast(speech)" -->
+  <ion-item button ion-item *ngFor="let speech of speechList" (click)="getPosts(speech,this.category)" >
+    {{speech}}
+  </ion-item>
+</ion-scroll>
+</ion-card-content>
+</ion-card>
+<div class="centerSpeech">
+
+        <button ion-button (click)="listenForSpeech()" color="light" round icon-only > <ion-icon name="microphone" full ></ion-icon></button>
+</div>
+
+
+<ion-card *ngFor="let item of items"  >
+  <ion-card-content style="height: 25vh;">
+      {{item.translatedText}}
+  </ion-card-content>
+</ion-card>
+
+<ion-item>
+  <ion-label> Language</ion-label>
+  <!--category and target at is not cap with the backend ,if got time make change here, default select -->
+  <ion-select [(ngModel)]="category">
+    <ion-option value="en" > English</ion-option>
+    <ion-option value="zh-CN"> Chinese (Simplified)</ion-option>
+    <ion-option value="ja"> Japanese</ion-option>
+    <ion-option value="ms"> Malay</ion-option>
+    <ion-option value="es"> Spanish</ion-option>
+    <ion-option value="no"> Norwegian</ion-option>
+    <ion-option value="pt"> Portuguese</ion-option>
+    <ion-option value="ro"> Romanian</ion-option>
+    <ion-option value="ru"> Russian</ion-option>
+    <ion-option value="th"> Thai</ion-option>
+
+  </ion-select>
+</ion-item>
+
+</ion-content>

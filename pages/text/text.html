@@ -1,0 +1,74 @@
+
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >Text Translate</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label stacked>Text To  Translate</ion-label>
+  <ion-textarea rows="10" class="spacing" [(ngModel)]="TranslateToText" type="text"></ion-textarea>
+</ion-item>
+  <ion-item>
+    <ion-label> Language</ion-label>
+    <!--category and target at is not cap with the backend ,if got time make change here, default select -->
+    <ion-select [(ngModel)]="category">
+      <ion-option value="en" > English</ion-option>
+      <ion-option value="zh-CN"> Chinese (Simplified)</ion-option>
+      <ion-option value="ja"> Japanese</ion-option>
+      <ion-option value="ms"> Malay</ion-option>
+      <ion-option value="es"> Spanish</ion-option>
+      <ion-option value="no"> Norwegian</ion-option>
+      <ion-option value="pt"> Portuguese</ion-option>
+      <ion-option value="ro"> Romanian</ion-option>
+      <ion-option value="ru"> Russian</ion-option>
+      <ion-option value="th"> Thai</ion-option>
+
+    </ion-select>
+  </ion-item>
+
+  <ion-card *ngFor="let item of items" >
+    <ion-card-content>
+      {{item.translatedText}}
+      <ion-row>
+        <ion-col col-12></ion-col>
+      </ion-row>
+      <button ion-button clear small icon-left color="primary" (click)="read(item.translatedText,this.category)">
+  <ion-icon name="musical-notes"></ion-icon>
+  Sound
+</button>
+
+ <a href="http://www.dictionary.com/browse/{{item.translatedText}}">
+  <button ion-button clear small icon-left color="primary" >
+<ion-icon name="add"></ion-icon>
+Detail
+</button>
+</a>
+
+
+<!--  <button ion-button clear small icon-left color="primary" (click)="launch('http://www.dictionary.com/browse/{{item.translatedText}}')">
+<ion-icon name="add"></ion-icon>
+2Detail
+</button>
+-->
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button icon-left full (click)="getPosts(this.TranslateToText,this.category)">
+    <ion-icon name="swap"></ion-icon>
+     Translate
+  </button>
+
+  <!-- <button ion-button icon-left full (click)="readCat(this.category)">
+    <ion-icon name="swap"></ion-icon>
+     Read Category
+  </button> -->
+
+</ion-content>

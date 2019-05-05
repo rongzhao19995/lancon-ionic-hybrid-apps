@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+
+  <div class="headword">{{ item.headword }}
+  </div>
+  <div ng-if="item.pronunciations[0].ipa" class="ipa"> {{item.pronunciations["0"].ipa}} </div>
+  <ion-icon name="volume-up" class="sound">British</ion-icon>
+<ion-icon name="volume-up" class="sound">American</ion-icon>
+  <ion-item>
+    <ion-row>
+      <p class="type"> [ {{ item.part_of_speech }} ]
+    </ion-row>
+  </ion-item>
+
+
+  <div padding>
+    <div class="Title">Definition : </div>
+    <div ng-if="item.senses[0].definition" class="Content">{{item.senses["0"].definition}} </div>
+
+    <div class="Title">Example : </div>
+    <!-- <button ion-button clear class="sound" (click)="playExample()">
+<ion-icon name="volume-up"></ion-icon></button> -->
+    <div ng-if="item.senses[0].examples[0].text"class="Content">{{item.senses["0"].examples["0"].text}} </div>
+  </div>
+
+
+
+
+</ion-content>

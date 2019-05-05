@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>User Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Profile</h2>
+  <form [formGroup]="editForm" (submit)="edit()" novalidate>
+
+    <ion-item>
+      <ion-label  stacked>Name</ion-label>
+      <ion-label > {{name}}</ion-label>
+    </ion-item>
+   <ion-item>
+     <ion-label stacked>Address</ion-label>
+     <ion-input  stackedtype="text" formControlName="address" value={{address}}></ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label stacked>Phone</ion-label>
+     <ion-input  type="text"  formControlName="phone"value={{phone}}></ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label  stacked>Email</ion-label>
+     <ion-label > {{email}}</ion-label>
+   </ion-item>
+    <button ion-button block type="submit">
+      Edit
+    </button>
+  </form>
+</ion-content>
